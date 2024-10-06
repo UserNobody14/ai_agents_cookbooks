@@ -1,12 +1,4 @@
 #!/usr/bin/env bash
-#-------------------------------------------------------------------------------------------------------------
-# Copyright (c) Microsoft Corporation. All rights reserved.
-# Licensed under the MIT License. See https://go.microsoft.com/fwlink/?linkid=2090316 for license information.
-#-------------------------------------------------------------------------------------------------------------
-#
-# Docs: https://github.com/microsoft/vscode-dev-containers/blob/main/script-library/docs/python.md
-# Maintainer: The VS Code and Codespaces Teams
-
 PYTHON_VERSION="${VERSION:-"latest"}" # 'system' or 'os-provided' checks the base image first, else installs 'latest'
 INSTALL_PYTHON_TOOLS="${INSTALLTOOLS:-"true"}"
 SKIP_VULNERABILITY_PATCHING="${SKIPVULNERABILITYPATCHING:-"false"}"

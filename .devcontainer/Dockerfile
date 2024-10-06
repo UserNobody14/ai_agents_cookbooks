@@ -15,7 +15,6 @@ RUN if [ "$VARIANT" = "noble" ]; then \
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install --no-install-recommends git
 
-# RUN apt-get clean && rm -rf /var/lib/apt/lists/* 
 
 ARG USERNAME=vscode
 ARG USER_UID=1000
@@ -28,10 +27,6 @@ RUN groupadd --gid $USER_GID $USERNAME \
     && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME \
     && rm -rf /var/lib/apt/lists/*
-    # Add su support
-    # && apt-get update \
-    # && apt-get install -y procps \
-    # && rm -rf /var/lib/apt/lists/*
 USER $USERNAME
 
 COPY ./py.sh .
@@ -43,13 +38,6 @@ ENV PIPX_HOME="/usr/local/py-utils"
 ENV PIPX_BIN_DIR="/usr/local/py-utils/bin"
 ENV PATH="/usr/local/python/current/bin:/usr/local/py-utils/bin:${PATH}"
 
-# ENV PATH=$PATH:/home/$USERNAME/.local/bin
-# RUN pip install pip --upgrade
-
-
-# # Install jupyterlab
-# RUN $(which python3) -m pip install --user --upgrade --no-cache-dir jupyterlab
-# RUN $(which python3) -m pip install --user --upgrade --no-cache-dir jupyterlab-git
 USER vscode
 # Debug /usr/local/python
 RUN echo "PYTHON_SRC: $(which python3)" \
@@ -58,4 +46,4 @@ RUN echo "PYTHON_SRC: $(which python3)" \
     && echo "PIP_VERSION: $(pip3 --version)" \
     && echo "PIPX_VERSION: $(pipx --version)"
 
-RUN pip install jupyterlab
+RUN pip install ipywidgets 
