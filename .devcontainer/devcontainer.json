@@ -36,13 +36,6 @@
 		}
 	},
 
-    // "containerEnv": {
-    //     "PYTHON_PATH": "/usr/local/python/current",
-    //     "PIPX_HOME": "/usr/local/py-utils",
-    //     "PIPX_BIN_DIR": "/usr/local/py-utils/bin",
-    //     "PATH": "/usr/local/python/current/bin:/usr/local/py-utils/bin:${PATH}"
-    // },
-
     "forwardPorts": [6006],
 
     // Features to add to the dev container. More info: https://containers.dev/features.
@@ -52,16 +45,8 @@
             "installZsh": true,
             "configureZshAsDefaultShell": true,
             "installOhMyZsh": true,
-            "username": "vscode",
-			"userUid": "1000",
-			"userGid": "1000"
+            "username": "vscode"
         }
-		// "ghcr.io/devcontainers/features/python:1": {
-        //     "version": "3.12.1",
-        //     "installJupyterlab": "true",
-        //     "configureJupyterlabAllowOrigin": "*",
-        //     "useOryxIfAvailable": "false"
-		// }
     },
     "remoteUser": "vscode"
 }
